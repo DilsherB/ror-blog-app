@@ -22,4 +22,6 @@ test:
 6. rails g migration create_comments author_id:integer post_id:integer text:text
 7. rails g migration create_posts author_id:integer title:string text:text comments_counter:integer likes_counter:integer
 8. rails g migration create_likes author_id:integer post_id:integer
-9. rails db:migrate
+9. foreign keys added manually. Can be added by rails command also.
+10. indexes added manually. Can be added by rails command also.
+11. rails db:migrate
