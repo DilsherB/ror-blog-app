@@ -25,3 +25,53 @@ test:
 9. foreign keys added manually. Can be added by rails command also.
 10. indexes added manually. Can be added by rails command also.
 11. rails db:migrate
+12. models(comment.rb, like.rb, post.rb & user.rb) created. models follows namming convention and they must be singular
+  a: comment.rb
+    class Comment < ApplicationRecord
+      belongs_to :post, class_name: 'Post' #it says Comment belongs_to post & post's class is Post
+      belongs_to :author, class_name: 'User' #it says Comment belongs_to author & author's class is User
+
+      after_create :update_comments_counter #it instructs the Comment class to run update_comments_counter.
+
+      def update_comments_counter
+        post.update(comments_counter: post.comments.count) #it says update comments_counter for the specific post by applying count(built-in) method on comments on a specific post.
+      end
+    end
+  b:  like.rb  
+    class Like < ApplicationRecord
+      belongs_to :author, class_name: 'User' #it says Like belongs_to author & author's class is User.
+      belongs_to :post, class_name: 'Post' #it says Like belongs_to post & post's class is Post.
+
+      after_create :update_likes_counter #it instructs the Like class to run update_likes_counter on creating like.
+
+      def update_likes_counter
+        post.update(likes_counter: post.likes.count)
+      end
+    end
+  c:  user.rb
+    class User < ApplicationRecord
+      has_many :posts, foreign_key: 'author_id'
+      has_many :comments, foreign_key: 'author_id'
+      has_many :likes, foreign_key: 'author_id'
+
+      def recent_posts(limit = 3)
+        posts.order(created_at: :desc).limit(limit)
+      end
+    end
+  d: post.rb
+    class Post < ApplicationRecord
+      has_many :comments
+      has_many :likes
+      belongs_to :author, class_name: 'User', foreign_key: 'author_id'
+      
+      after_create :update_posts_counter
+
+      def update_posts_counter
+        author.increment!(:posts_counter, amount = 1)
+      end
+
+      def recent_comment(limit = 5)
+        comments.order(created_at: :desc).limit(limit)
+      end
+    end
+
