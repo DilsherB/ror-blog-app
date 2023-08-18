@@ -13,4 +13,14 @@ RSpec.describe Post, type: :model do
     post1.title = "a" * 251
     expect(post1).to_not be_valid
   end
+
+  it "Check comments counter is numeric" do
+    post1.comments_counter = "a"
+    expect(post1).to_not be_valid
+  end
+
+  it "Check comments counter is greater than 0" do
+    post1.comments_counter = -1
+    expect(post1).to_not be_valid
+  end
 end
