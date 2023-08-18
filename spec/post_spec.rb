@@ -42,4 +42,12 @@ RSpec.describe Post, type: :model do
     comment3 = Comment.create(post: post1, author: user, text: "comment3")
     expect(post1.recent_comment(3)).to eq([comment3, comment2, comment1])
   end
+
+  it "must update post counter by 1 on every new post" do
+    user = User.create(name: "John", photo: "https://example.com", bio: "tttt")
+    post1 = Post.create(author: user, title: "title1", text: "text1", comments_counter: 1, likes_counter: 1)
+    expect(user.posts_counter).to eq(1)
+    post2 = Post.create(author: user, title: "title1", text: "text1", comments_counter: 1, likes_counter: 1)
+    expect(user.posts_counter).to eq(2)
+  end
 end
