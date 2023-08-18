@@ -23,4 +23,10 @@ RSpec.describe Post, type: :model do
     post1.comments_counter = -1
     expect(post1).to_not be_valid
   end
+
+  it "Check likes counter is numeric" do
+    post1.likes_counter = "a"
+    expect(post1).to_not be_valid
+  end
+  
 end
