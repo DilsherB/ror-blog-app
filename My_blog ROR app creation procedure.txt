@@ -1,6 +1,8 @@
 My_blog ROR app creation procedure
 
-1. rails new rails-blog-app --database=postgresql
+1. rails new rails-blog-app --database=postgresql 
+                  OR 
+rails new rails-blog-app --skip-git --database=postgresql -T #it will not initialize git and will not generate test files
 2. git init
 3. in `database.yml`
 development:
@@ -74,4 +76,31 @@ test:
         comments.order(created_at: :desc).limit(limit)
       end
     end
-
+13. add validations to models
+  a: user.rb
+    i)  validates :name, presence: true #it makes sure name is not empty
+   ii)  validates :posts_counter, numaricality: {only_integer: true, greater_than_or_equal_to: 0} #it makes sure posts_counter is numerical & greaterORequal to 0
+  b: post.rb
+    i)  validates :title, presence: true, length: { maximum: 250 } #it makes sure name is not empty and length is not greater than 250 charectors
+   ii)  validates :comments_counter, numaricality: { only_integer: true, greater_than_or_equal_to: 0 }  #it makes sure comments_counter is numerical & greaterORequal to 0
+  iii)  validates :likes_counter, numaricality: { only_integer: true, greater_than_or_equal_to: 0 } #it makes sure likes_counter is numerical & greaterORequal to 0
+14. Let's define test now
+  a:  add the following in Gemfile:
+        gem 'rspec-rails'
+      between the following lines:
+        group :development, :test do
+          # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+          gem 'debug', platforms: %i[mri mingw x64_mingw]
+        end
+  b:  run the following command in console:
+        rails generate rspec:install
+      it will create the following files:
+        spec/rails_helper.rb
+        spec/spec_helper.rb
+        .rspec
+  c:  Now lets create tests:
+        create following files:
+          user_spec.rb
+          post_spec.rb
+          like_spec.rb
+          comment_spec.rb
