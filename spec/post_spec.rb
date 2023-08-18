@@ -33,4 +33,13 @@ RSpec.describe Post, type: :model do
     post1.likes_counter = -1
     expect(post1).to_not be_valid
   end
+
+  it "must return recent comments as per given arguments" do
+    user = User.create(name: "John", photo: "https://example.com", bio: "tttt", posts_counter:1)
+    post1 = Post.create(author: user, title: "title1", text: "text1", comments_counter: 1, likes_counter: 1)
+    comment1 = Comment.create(post: post1, author: user, text: "comment1")
+    comment2 = Comment.create(post: post1, author: user, text: "comment2")
+    comment3 = Comment.create(post: post1, author: user, text: "comment3")
+    expect(post1.recent_comment(3)).to eq([comment3, comment2, comment1])
+  end
 end
