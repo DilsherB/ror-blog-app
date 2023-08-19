@@ -100,7 +100,7 @@ test:
         .rspec
   c:  Now lets create tests:
         create following files:
-          user_spec.rb
-          post_spec.rb
-          like_spec.rb
-          comment_spec.rb
+          user_spec.rb in this file validations and methods are tested to give same output every time.
+          post_spec.rb in this file validations and methods are tested to give same output every time.
+          like_spec.rb in this file validations and methods are tested to give same output every time.
+          comment_spec.rb in this file validations and methods are tested to give same output every time.
