@@ -104,3 +104,5 @@ test:
           post_spec.rb
           like_spec.rb
           comment_spec.rb
+15. Lets create controllers.
+  a:  
