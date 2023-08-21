@@ -104,3 +104,7 @@ test:
           post_spec.rb in this file validations and methods are tested to give same output every time.
           like_spec.rb in this file validations and methods are tested to give same output every time.
           comment_spec.rb in this file validations and methods are tested to give same output every time.
+15. Lets create controllers.
+  a:  two controllers 1: postsController.rb 2: UsersController in app/controllers created with two empty methods 1: index 2: show
+  b:  four views 1: index.html.erb 2: show.htmp.erb 3: index.html.erb 4: show.html.erb in app/views/posts & app/views/users for all four methods of two cortollers are created.
+  c:  routs for all four views defined in config/routes.rb
