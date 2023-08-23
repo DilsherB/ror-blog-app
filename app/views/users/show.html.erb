@@ -1,2 +1,11 @@
-<h1>Specific user detail</h1>
+<h1>Detail of <%= @user.name%>'s posts</h1>
+<img src=<%= asset_path("user-placeholder.png") %> width=100>
+<%= @user.name%>
+Number of posts: <%= @user.posts_counter%>
+<p>Bio: </br><%= @user.bio%></p>
+<% @posts.each do |post| %>
+  <p><%= post.title%></p>
+  <p><%= post.text%></p>
+  <p>Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter%> </p>
+<% end %>
 
