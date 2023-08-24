@@ -4,32 +4,39 @@
   box-sizing: border-box;
   background-color: rgb(245, 247, 239);
 }
+
 body {
   width: 600px;
   margin: 0 auto;
 }
+
 h1 {
   font-size: 2.5rem;
   padding-bottom: 1rem;
   text-align: center;
 }
+
 a {
   text-decoration: none;
   /* color: #000; */
 }
+
 ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 li {
   display: flex;
   gap: 20px;
 }
+
 p {
   width: 200px;
 }
+
 .border {
   border: 1px solid black;
   padding: 5px 10px;
@@ -37,6 +44,7 @@ p {
   height: 110px;
   width: 100%;
 }
+
 .borderb {
   border: 2px solid black;
   padding: 5px 10px;
@@ -44,30 +52,38 @@ p {
   height: 110px;
   width: 100%;
 }
+
 .flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
 }
+
 .right {
   width: 560px;
   text-align: right;
   color: rgb(65, 64, 64);
 }
+
 .size {
   font-size: 1.5rem;
-  font-weight: 500px;
+  font-weight: 500;
 }
+
 .flexColumn {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  /* stylelint-disable */
   height: fit-content;
 }
+
 .fit {
+  /* stylelint-disable */
   height: fit-content !important;
 }
+
 .fontlight {
   font-size: small;
   color: rgb(37, 74, 74);
@@ -90,18 +106,19 @@ p {
 .button:focus {
   outline: none;
 }
+
 .navigate {
-  /* display: flex; */
-  /* justify-content: center; */
   margin: 20px 0;
   background-color: rgb(234, 234, 241);
   font-size: 1.3rem;
 }
+
 .navigate ul {
   display: flex;
   justify-content: space-between;
   gap: 20px;
 }
+
 .footer {
   margin: 20px 0;
   text-align: center;
