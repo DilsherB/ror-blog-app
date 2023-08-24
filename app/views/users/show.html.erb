@@ -1,19 +1,42 @@
+<div class="navigate">
+  <ul>
+    <li><%= link_to "Back", :back %></li>
+    <li><%= link_to "All Users", :root%></li>
+  </ul>
+</div>
+
 <h1>Detail of <%= @user.name%>'s posts</h1>
 <div class="flex">
-  <div class="border">
+  <div class="borderb">
     <img src=<%= asset_path("user-placeholder.png") %> width=100>
   </div>
-  <div class="border">
-    <p><%= @user.name%></p>
+  <div class="borderb flex">
+    <p class="size"><%= @user.name%></p>
     <p>Number of Posts: <%= @user.posts_counter%></p>
   </div>
 </div>
-<div class="border"><p>Bio: </br></br><%= @user.bio%></p></div>
+<div class="borderb"><p>Bio: </br></br><%= @user.bio%></p></div>
 <% @posts.each do |post| %>
-  <div class="border">
+  <div class="borderb">
     <p><%= post.title%></p></br>
     <p><%= post.text%></p>
     <p class="right">Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter || 0%> </p>
   </div>
 <% end %>
+<div cla>
+<button class="button">
+  <%= link_to "See all posts", "#{@user.id}/posts", class: "see-link" %>
+</button>
 
+<div class="border fit footer">
+  <span>
+    Build with 🧡 By:
+    <a
+    href="https://github.com/DilsherB"
+    target="_blank"
+    rel="noreferrer"
+    >
+    Dilsher Balouch (GitHub)
+    </a>
+  </span>
+</div>

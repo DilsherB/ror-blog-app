@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background-color: rgb(229, 236, 236); */
+  background-color: rgb(245, 247, 239);
 }
 body {
   width: 600px;
@@ -15,7 +15,7 @@ h1 {
 }
 a {
   text-decoration: none;
-  color: #000;
+  /* color: #000; */
 }
 ul {
   list-style: none;
@@ -24,44 +24,87 @@ ul {
   justify-content: center;
 }
 li {
-  margin: 10px 0;
   display: flex;
   gap: 20px;
-}
-li div {
-  display: flex;
-  border: 1px solid black;
-  height: 105%;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-}
-li div :first-child:hover {
-  font-size: larger;
-  font-weight: 500;
 }
 p {
   width: 200px;
 }
 .border {
   border: 1px solid black;
-  padding: 10px 20px;
+  padding: 5px 10px;
+  margin: 0 0 15px 0;
+  height: 110px;
+  width: 100%;
+}
+.borderb {
+  border: 2px solid black;
+  padding: 5px 10px;
   margin: 10px 0;
+  height: 110px;
+  width: 100%;
 }
 .flex {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 20px;
-}
-.flex div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 105px;
-  padding: 0 20px;
 }
 .right {
   width: 560px;
   text-align: right;
+  color: rgb(65, 64, 64);
+}
+.size {
+  font-size: 1.5rem;
+  font-weight: 500px;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: fit-content;
+}
+.fit {
+  height: fit-content !important;
+}
+.fontlight {
+  font-size: small;
+  color: rgb(37, 74, 74);
+}
+
+.button {
+  background-color: #4caf50; /* Green */
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #388e3c; /* Darker green */
+}
+
+.button:focus {
+  outline: none;
+}
+.navigate {
+  /* display: flex; */
+  /* justify-content: center; */
+  margin: 20px 0;
+  background-color: rgb(234, 234, 241);
+  font-size: 1.3rem;
+}
+.navigate ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.footer {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgb(37, 74, 74);
 }

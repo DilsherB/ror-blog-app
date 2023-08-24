@@ -2,14 +2,27 @@
 
 <ul class="users">
   <% @users.each do |user| %>
-    <li>
-      <div>
+    <li class="flex">
+      <div class="borderb">
         <img src="<%= asset_path("user-placeholder.png") %>" alt="<%= user.name%>" width=100px >
       </div>
-      <div>
-        <p><%= link_to user.name, "users/#{user.id}" %></p>
+      <div class="borderb flex">
+        <p class="size"><%= link_to user.name, "users/#{user.id}" %></p>
         <p>Numebr of Posts: <%= user.posts_counter%></p>
       </div>
     </li>
   <% end %>
 </ul>
+
+<div class="border fit footer">
+  <span>
+    Build with 🧡 By:
+    <a
+    href="https://github.com/DilsherB"
+    target="_blank"
+    rel="noreferrer"
+    >
+    Dilsher Balouch (GitHub)
+    </a>
+  </span>
+</div>

@@ -1,1 +1,61 @@
-<h1>Posts by user</h1>
+<div class="navigate">
+  <ul>
+    <li><%= link_to "Back", :back %></li>
+    <li><%= link_to "All Users", :root%></li>
+  </ul>
+</div>
+
+<h1>Posts of <%= @user.name%></h1>
+<div>
+  <% if @user %>
+    <div class="flex">
+      <div class="borderb">
+        <img src="<%= asset_path("user-placeholder.png") %>" alt="<%= @user.name%>" width=100px >
+      </div>
+      <div class="borderb flex">
+        <p><%= @user.name%></p>
+        <p>Number of Posts: <%= @user.posts_counter%></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li class="borderb">
+      <div class="fit">
+        <div><%= link_to post.title, "posts/#{post.id}" %></div></br>
+        <%= post.text %>
+        <div class="right fontlight">
+          <span>Comments: <%= post.comments_counter || 0 %></span>
+          <span>Likes: <%= post.likes_counter || 0 %></span>
+        </div>
+      </div>
+    </li>
+      <ul class="border flexColumn">
+      <% if post.recent_comment.any?%>
+        <% post.recent_comment.each do |comment| %>
+          <li>
+            <%= comment.author.name + ": " + comment.text%>
+          </li>
+        <% end %>
+      <% else %>
+        <li>No comments added yet.</li>
+      <% end %>
+      </ul>
+      </br></br>
+  <% end %>
+</ul>
+
+<div class="border fit footer">
+  <span>
+    Build with 🧡 By:
+    <a
+    href="https://github.com/DilsherB"
+    target="_blank"
+    rel="noreferrer"
+    >
+    Dilsher Balouch (GitHub)
+    </a>
+  </span>
+</div>
