@@ -3,7 +3,7 @@
 <h1>Detail of <%= @user.name%>'s posts</h1>
 <div class="flex">
   <div class="borderb">
-    <img src=<%= asset_path("user-placeholder.png") %> width=100>
+    <img src=<%= @user.photo %> width=100>
   </div>
   <div class="borderb flex">
     <p class="size"><%= @user.name%></p>
