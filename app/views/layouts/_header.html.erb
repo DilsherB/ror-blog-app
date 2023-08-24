@@ -1,9 +1,6 @@
-<div>
+<div class="navigate">
   <ul>
-
-    <% @users.each do |user| %>
-      <li>
-        <%= link_to user.name, "users/#{user.id}" %>
-      </li>
-    <% end %>
+    <li><%= link_to "Back", :back %></li>
+    <li><%= link_to "All Users", :root%></li>
+  </ul>
 </div>

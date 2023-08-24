@@ -1,9 +1,4 @@
-<div class="navigate">
-  <ul>
-    <li><%= link_to "Back", :back %></li>
-    <li><%= link_to "All Users", :root%></li>
-  </ul>
-</div>
+<%= render "layouts/header"%>
 
 <h1>Detail of <%= @user.name%>'s posts</h1>
 <div class="flex">
@@ -23,20 +18,8 @@
     <p class="right">Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter || 0%> </p>
   </div>
 <% end %>
-<div cla>
-<button class="button">
-  <%= link_to "See all posts", "#{@user.id}/posts", class: "see-link" %>
-</button>
-
-<div class="border fit footer">
-  <span>
-    Build with 🧡 By:
-    <a
-    href="https://github.com/DilsherB"
-    target="_blank"
-    rel="noreferrer"
-    >
-    Dilsher Balouch (GitHub)
-    </a>
-  </span>
+<div class="margintop20">
+  <%= link_to "See all posts", "#{@user.id}/posts", class: "button" %>
 </div>
+
+<%= render "layouts/footer" %>
