@@ -5,8 +5,10 @@
     <li>
       <div>
         <img src="<%= asset_path("user-placeholder.png") %>" alt="<%= user.name%>" width=100px >
-        <%= link_to user.name, "users/#{user.id}" %>
-        <span>Numebr of Posts: <%= user.posts_counter%></span>
+      </div>
+      <div>
+        <p><%= link_to user.name, "users/#{user.id}" %></p>
+        <p>Numebr of Posts: <%= user.posts_counter%></p>
       </div>
     </li>
   <% end %>

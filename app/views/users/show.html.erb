@@ -1,11 +1,19 @@
 <h1>Detail of <%= @user.name%>'s posts</h1>
-<img src=<%= asset_path("user-placeholder.png") %> width=100>
-<%= @user.name%>
-Number of posts: <%= @user.posts_counter%>
-<p>Bio: </br><%= @user.bio%></p>
+<div class="flex">
+  <div class="border">
+    <img src=<%= asset_path("user-placeholder.png") %> width=100>
+  </div>
+  <div class="border">
+    <p><%= @user.name%></p>
+    <p>Number of Posts: <%= @user.posts_counter%></p>
+  </div>
+</div>
+<div class="border"><p>Bio: </br></br><%= @user.bio%></p></div>
 <% @posts.each do |post| %>
-  <p><%= post.title%></p>
-  <p><%= post.text%></p>
-  <p>Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter%> </p>
+  <div class="border">
+    <p><%= post.title%></p></br>
+    <p><%= post.text%></p>
+    <p class="right">Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter || 0%> </p>
+  </div>
 <% end %>
 
