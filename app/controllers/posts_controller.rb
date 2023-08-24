@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     user_id = params[:user_id]
     @user = User.find(user_id)
@@ -10,6 +9,4 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.recent_comment
   end
-  
 end
-
