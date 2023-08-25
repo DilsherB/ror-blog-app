@@ -129,3 +129,13 @@ test:
           i)  have_http_status(:success)  ||  have_http_status(:success)
          ii)  render_template(:index)     ||  render_template(:show)
         iii)  include('Posts by user')    ||  include('Specific post') 
+17. Lets create views now:
+a:  gem 'sassc-rails' added to Gemfile.rb to process css.
+b:  run 'bundle install' to install the gem.
+c:  in 'app/assets/stylesheets' custom.css created and imported in same folder's file application.css like '@import "custom";'
+d:  all the styling done inside custom.css.
+e:  added functions in postsController of user for index and show methods.
+e:  added functions in usersController of post for index and show methods.
+f:  footer & header defined inside app/views/layouts as partials. partials' names must start with _.
+g:  In index.html.erb & show.html.erb of users & posts, logics written to fetch data from data base in html with embeded ruby.
+g:  In index.html.erb & show.html.erb of users & posts, partials are also added.
