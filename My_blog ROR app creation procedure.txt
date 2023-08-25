@@ -98,9 +98,44 @@ test:
         spec/rails_helper.rb
         spec/spec_helper.rb
         .rspec
-  c:  Now lets create tests:
+  c:  Now lets write tests for models:
         create following files:
           user_spec.rb in this file validations and methods are tested to give same output every time.
           post_spec.rb in this file validations and methods are tested to give same output every time.
           like_spec.rb in this file validations and methods are tested to give same output every time.
           comment_spec.rb in this file validations and methods are tested to give same output every time.
+15. Lets create controllers.
+  a:  two controllers 1: postsController.rb 2: UsersController in app/controllers created with two empty methods 1: index 2: show
+  b:  four views 1: index.html.erb 2: show.htmp.erb 3: index.html.erb 4: show.html.erb in app/views/posts & app/views/users for all four methods of two cortollers are created.
+  c:  routs for all four views defined in config/routes.rb
+16. Lets write tests for controllers:
+  a:  add following line in Gemfile.rb
+        gem 'rails-controller-testing'
+      between following lines
+        group :development, :test do
+          # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+          gem 'debug', platforms: %i[mri mingw x64_mingw]
+          gem 'rspec-rails'
+        end
+  b:  run 'bundle install' in console.
+  c:  create two files 1: user_spec.rb 2: post_spec.rb in spec/requests
+      in user_spec.rb following 3 tests written for each controller 'show' and 'index'
+
+          i)  have_http_status(:success)  ||  have_http_status(:success)
+         ii)  render_template(:index)     ||  render_template(:show)
+        iii)  include('All users')    ||  include('Specific user detail')
+      in post_spec.rb following 3 tests written for each controller 'show' and 'index'
+
+          i)  have_http_status(:success)  ||  have_http_status(:success)
+         ii)  render_template(:index)     ||  render_template(:show)
+        iii)  include('Posts by user')    ||  include('Specific post') 
+17. Lets create views now:
+a:  gem 'sassc-rails' added to Gemfile.rb to process css.
+b:  run 'bundle install' to install the gem.
+c:  in 'app/assets/stylesheets' custom.css created and imported in same folder's file application.css like '@import "custom";'
+d:  all the styling done inside custom.css.
+e:  added functions in postsController of user for index and show methods.
+e:  added functions in usersController of post for index and show methods.
+f:  footer & header defined inside app/views/layouts as partials. partials' names must start with _.
+g:  In index.html.erb & show.html.erb of users & posts, logics written to fetch data from data base in html with embeded ruby.
+g:  In index.html.erb & show.html.erb of users & posts, partials are also added.
