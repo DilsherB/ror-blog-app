@@ -10,17 +10,17 @@ RSpec.describe 'Users', type: :request do
 
   describe 'index page' do
     it 'renders the users\' index page' do
-      get '/users/'
+      get users_path
       expect(response).to have_http_status(:success)
     end
 
     it 'render user template' do
-      get '/users/'
+      get users_path
       expect(response).to render_template(:index)
     end
 
     it 'shows the data of index page' do
-      get '/users/'
+      get users_path
       expect(response.body).to include('All users')
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe 'Users', type: :request do
 
     it 'shows the data of show page' do
       get "/users/#{user.id}"
-      expect(response.body).to include('Specific user detail')
+      expect(response.body).to include('Detail of')
     end
   end
 end

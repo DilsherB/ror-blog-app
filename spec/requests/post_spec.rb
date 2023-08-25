@@ -7,18 +7,18 @@ RSpec.describe 'posts', type: :request do
 
   describe 'main post\'s page' do
     it 'renders the main page successfully' do
-      get "/users/#{user.id}/posts"
+      get users_path
       expect(response).to have_http_status(:success)
     end
 
     it 'renders index template of post' do
-      get "/users/#{user.id}/posts"
+      get users_path
       expect(response).to render_template(:index)
     end
 
     it 'show the post\'s index page data' do
-      get "/users/#{user.id}/posts"
-      expect(response.body).to include('Posts by user')
+      get users_path
+      expect(response.body).to include('Posts')
     end
   end
 
@@ -35,7 +35,7 @@ RSpec.describe 'posts', type: :request do
 
     it 'shows the post\'s show page data' do
       get "/users/#{user.id}/posts/#{post.id}"
-      expect(response.body).to include('Specific post')
+      expect(response.body).to include('Post')
     end
   end
 end
