@@ -17,7 +17,7 @@
 
 <ul>
   <% @posts.each do |post| %>
-    <li class="borderb">
+    <li class="borderb fit">
       <div class="fit">
         <div><%= link_to post.title, "posts/#{post.id}" %></div></br>
         <%= post.text %>

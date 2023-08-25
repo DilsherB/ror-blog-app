@@ -12,7 +12,7 @@
 </div>
 <div class="borderb"><p>Bio: </br></br><%= @user.bio%></p></div>
 <% @posts.each do |post| %>
-  <div class="borderb">
+  <div class="borderb fit">
     <p><%= post.title%></p></br>
     <span><%= post.text%></span>
     <p class="right">Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter || 0%> </p>
