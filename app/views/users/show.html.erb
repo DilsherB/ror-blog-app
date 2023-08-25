@@ -1,1 +1,25 @@
-<h1>Specific user detail</h1>
+<%= render "layouts/header"%>
+
+<h1>Detail of <%= @user.name%>'s posts</h1>
+<div class="flex">
+  <div class="borderb">
+    <img src=<%= @user.photo %> width=100>
+  </div>
+  <div class="borderb flex">
+    <p class="size"><%= @user.name%></p>
+    <p>Number of Posts: <%= @user.posts_counter%></p>
+  </div>
+</div>
+<div class="borderb"><p>Bio: </br></br><%= @user.bio%></p></div>
+<% @posts.each do |post| %>
+  <div class="borderb">
+    <p><%= post.title%></p></br>
+    <p><%= post.text%></p>
+    <p class="right">Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter || 0%> </p>
+  </div>
+<% end %>
+<div class="margintop20">
+  <%= link_to "See all posts", "#{@user.id}/posts", class: "button" %>
+</div>
+
+<%= render "layouts/footer" %>
