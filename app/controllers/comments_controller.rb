@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       redirect_to user_post_path(user_id: @current_user.id, id: @post.id),
-        notice: 'Comment has been added successfully.'
+                  notice: 'Comment has been added successfully.'
     else
       render :new
     end
