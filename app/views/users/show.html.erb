@@ -10,7 +10,7 @@
     <p>Number of Posts: <%= @user.posts_counter%></p>
   </div>
 </div>
-<div class="borderb"><p>Bio: </br></br><%= @user.bio%></p></div>
+<div class="borderb"><span>Bio: </br></br><%= @user.bio%></p></div>
 <% @posts.each do |post| %>
   <div class="borderb fit">
     <p><%= post.title%></p></br>
@@ -20,7 +20,7 @@
 <% end %>
 <div class="margintop20">
   <%= link_to "See all posts", "#{@user.id}/posts", class: "button" %>
-   <%= link_to "Create New Post", "#{@user.id}/posts/new", class: "see-link" %>
+   <%= link_to "Create New Post", "#{@user.id}/posts/new", class: "button" %>
 </div>
 
 <%= render "layouts/footer" %>

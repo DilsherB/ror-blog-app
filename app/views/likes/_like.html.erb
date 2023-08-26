@@ -4,6 +4,6 @@
   <% end %>
 <% else %>
   <%= form_with(model: Like.new, method: :post, url: user_post_likes_path(user_id: post.author_id, post_id: post.id)) do |f| %>
-    <%= f.submit "Like", class: "like-button" %>
+    <%= f.submit "Like", class: "button margintop20" %>
   <% end %>
 <% end %>
