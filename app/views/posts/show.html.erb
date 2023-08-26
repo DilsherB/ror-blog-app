@@ -14,6 +14,9 @@
     <span><%= comment.author.name %>: <%= comment.text %>
     </span></br>
 <% end %>
+<%= render partial: 'comments/comment_form', locals: { comment: @comment, user: @user, post: @post } %>
+<br>
+<%= render partial: 'likes/like_form', locals: { post: @post } %>
   </div>
 
 <%= render "layouts/footer" %>
