@@ -31,7 +31,7 @@
       <% unless post.recent_comment.empty? %>
         <% post.recent_comment.each do |comment| %>
           <li>
-            <%= comment.author.name + ": " + comment.text %>
+            <%= comment.author.name%>: <%= comment.text %>
           </li>
         <% end %>
       <% else %>
