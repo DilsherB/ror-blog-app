@@ -13,7 +13,7 @@
 <div class="borderb"><span>Bio: </br></br><%= @user.bio%></p></div>
 <% @posts.includes(:comments, :likes).each do |post| %>
   <div class="borderb fit">
-    <p><%= post.title%></p></br>
+    <p><%= link_to post.title, user_post_path(post.id)%></p></br>
     <span><%= post.text%></span>
     <p class="right">Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter || 0%> </p>
   </div>
