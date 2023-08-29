@@ -112,6 +112,12 @@ Tests will be implemented later on.
 - Linkedin: [Dilsher Balouch](https://www.linkedin.com/in/dilsher-balouch/)
 - Twitter: [@\_brilliantMindz](https://twitter.com/_brilliantMindz)
 
+👤 **Ada Rachel Oyeoka**
+
+- GitHub: [Ada Rachel](https://github.com/adarachel)
+- Linkedin: [Ada Rachel](https://www.linkedin.com/in/adarachel/)
+- Twitter: [@adarachel_dev](https://twitter.com/adarachel_dev)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
