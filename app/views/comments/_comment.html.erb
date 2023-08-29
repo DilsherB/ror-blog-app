@@ -4,7 +4,8 @@
     <%= f.label :Comment %>
     <%= f.text_area :text, rows: 3, class: "border margintop20" %>
   </div>
-  <div class="form-submit">
-    <%= f.submit "Post Comment", class: 'button' %>
-  </div>
-<% end %>
+  <div class="form-submit flex">
+    <p><%= f.submit "Post Comment", class: 'button' %>
+<% end %></p>
+  <%= render partial: 'likes/like', locals: { post: @post }%>
+</div>
