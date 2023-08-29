@@ -25,11 +25,11 @@ RSpec.feature 'User Index Page', type: :feature do
     end
   end
 
-  scenario 'When I click on a user, I am redirected to their show page' do 
+  scenario 'When I click on a user, I am redirected to their show page' do
     users.each do |user|
       click_on user.name
       expect(current_path).to eq(user_path(user))
       visit users_path # Go back to the user index page for the next iteration
- end
-end
+    end
+  end
 end
