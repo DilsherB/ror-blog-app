@@ -66,6 +66,8 @@ The rails-blog-app is a classic example of a blog website. It will be fully up a
 - Processing data in models.
 - Views.
 - Forms
+- Validations and Model specs.
+- Integration specs for Views.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,10 +130,8 @@ Tests will be implemented later on.
 :telescope: Future Features <a name="future-features"></a>
 
 -Add authorization rules.
--Integration specs for Views.
 -Add API endpoints.
 -API documentation.
--Validations and Model specs.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
