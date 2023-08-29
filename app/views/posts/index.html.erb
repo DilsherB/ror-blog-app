@@ -5,7 +5,7 @@
   <% unless @user.nil? %>
     <div class="flex">
       <div class="borderb">
-        <img src=<%= @user.photo %> width=100 height=90>
+        <img src=<%= @user.photo %> alt="User profile photo" width=100 height=90>
       </div>
       <div class="borderb flex height110">
         <p><%= @user.name%></p>
@@ -16,7 +16,7 @@
 </div>
 
 <ul>
-  <% @posts.each do |post| %>
+  <% @posts.includes(:comments).each do |post| %>
     <li class="borderb fit">
       <div class="fit">
         <div><%= link_to post.title, "posts/#{post.id}" %></div></br>
@@ -40,6 +40,10 @@
       </ul>
       </br></br>
   <% end %>
+
+  <div>
+    <%= link_to "Pagination", "#", class: "see-link" %>
+    </div>
 </ul>
 
 <%= render "layouts/footer" %>

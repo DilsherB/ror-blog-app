@@ -63,6 +63,11 @@ The rails-blog-app is a classic example of a blog website. It will be fully up a
 
 - Use database migration files to maintain database schema.
 - Understand ORM and database migrations and their implementation.
+- Processing data in models.
+- Views.
+- Forms
+- Validations and Model specs.
+- Integration specs for Views.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -112,20 +117,21 @@ Tests will be implemented later on.
 - Linkedin: [Dilsher Balouch](https://www.linkedin.com/in/dilsher-balouch/)
 - Twitter: [@\_brilliantMindz](https://twitter.com/_brilliantMindz)
 
+👤 **Ada Rachel Oyeoka**
+
+- GitHub: [Ada Rachel](https://github.com/adarachel)
+- Linkedin: [Ada Rachel](https://www.linkedin.com/in/adarachel/)
+- Twitter: [@adarachel_dev](https://twitter.com/adarachel_dev)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 :telescope: Future Features <a name="future-features"></a>
 
--Processing data in models.
--Views.
--Forms
 -Add authorization rules.
--Integration specs for Views.
 -Add API endpoints.
 -API documentation.
--Validations and Model specs.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

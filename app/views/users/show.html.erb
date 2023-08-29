@@ -3,7 +3,7 @@
 <h1>Detail of <%= @user.name%>'s posts</h1>
 <div class="flex">
   <div class="borderb">
-    <img src=<%= @user.photo %> width=100 height=90>
+    <img src=<%= @user.photo%> alt='User profile photo' width=100 height=90>
   </div>
   <div class="borderb flex height110">
     <p class="size"><%= @user.name%></p>
@@ -11,16 +11,16 @@
   </div>
 </div>
 <div class="borderb"><span>Bio: </br></br><%= @user.bio%></p></div>
-<% @posts.each do |post| %>
+<% @posts.includes(:comments, :likes).each do |post| %>
   <div class="borderb fit">
-    <p><%= post.title%></p></br>
+    <p><%= link_to post.title, user_post_path(post.id)%></p></br>
     <span><%= post.text%></span>
     <p class="right">Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter || 0%> </p>
   </div>
 <% end %>
-<div class="margintop20">
-  <%= link_to "See all posts", "#{@user.id}/posts", class: "button" %>
-   <%= link_to "Create New Post", "#{@user.id}/posts/new", class: "button" %>
+<div class="margintop20 flex">
+  <p><%= link_to "See all posts", "#{@user.id}/posts", class: "button" %></p>
+   <p><%= link_to "Create New Post", "#{@user.id}/posts/new", class: "button" %></p>
 </div>
 
 <%= render "layouts/footer" %>

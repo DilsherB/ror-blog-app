@@ -10,7 +10,7 @@
   <span><%= @post.text%></span>
 </div>
   <div class="border fit">
-<% @post.comments.each do |comment| %>
+<% @post.comments.includes(:author).each do |comment| %>
     <span><%= comment.author.name %>: <%= comment.text %>
     </span></br>
 <% end %>
