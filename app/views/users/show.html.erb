@@ -11,16 +11,16 @@
   </div>
 </div>
 <div class="borderb"><span>Bio: </br></br><%= @user.bio%></p></div>
-<% @posts.each do |post| %>
+<% @posts.includes(:comments, :likes).each do |post| %>
   <div class="borderb fit">
     <p><%= post.title%></p></br>
     <span><%= post.text%></span>
     <p class="right">Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter || 0%> </p>
   </div>
 <% end %>
-<div class="margintop20">
-  <%= link_to "See all posts", "#{@user.id}/posts", class: "button" %>
-   <%= link_to "Create New Post", "#{@user.id}/posts/new", class: "button" %>
+<div class="margintop20 flex">
+  <p><%= link_to "See all posts", "#{@user.id}/posts", class: "button" %></p>
+   <p><%= link_to "Create New Post", "#{@user.id}/posts/new", class: "button" %></p>
 </div>
 
 <%= render "layouts/footer" %>

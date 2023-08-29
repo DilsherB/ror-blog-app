@@ -16,7 +16,7 @@
 </div>
 
 <ul>
-  <% @posts.each do |post| %>
+  <% @posts.includes(:comments).each do |post| %>
     <li class="borderb fit">
       <div class="fit">
         <div><%= link_to post.title, "posts/#{post.id}" %></div></br>
@@ -40,6 +40,10 @@
       </ul>
       </br></br>
   <% end %>
+
+  <div>
+    <%= link_to "Pagination", "#", class: "see-link" %>
+    </div>
 </ul>
 
 <%= render "layouts/footer" %>
