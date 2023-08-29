@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb(245, 247, 239);
+  background-color: rgb(160, 241, 241);
 }
 
 body {
@@ -41,6 +41,7 @@ p {
   padding: 5px 10px;
   margin: 0 0 15px 0;
   width: 100%;
+  margin-top: -9px;
 }
 
 .borderb {
@@ -52,8 +53,9 @@ p {
 
 .flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .right {
