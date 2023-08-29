@@ -22,7 +22,7 @@ RSpec.describe 'Post Index Page', type: :feature do
       expect(page).to have_content(@user1.posts_counter)
     end
 
-     it 'should show post title' do
+    it 'should show post title' do
       expect(page).to have_content(@first_post.title)
     end
 
