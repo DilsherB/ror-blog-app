@@ -102,6 +102,10 @@ p {
   margin-top: 20px;
 }
 
+.margintop10 {
+  margin-top: 10px;
+}
+
 .button:hover {
   background-color: #388e3c; /* Darker green */
 }
@@ -131,4 +135,13 @@ p {
 
 .height110 {
   height: 110px;
+}
+
+.danger {
+  color: white;
+  background-color: rgb(212, 61, 61);
+}
+
+.danger:hover {
+  background-color: red !important;
 }
