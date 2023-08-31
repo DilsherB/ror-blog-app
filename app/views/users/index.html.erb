@@ -1,5 +1,5 @@
 <h1>All users</h1>
-
+<%= render "layouts/header"%>
 <ul class="users">
   <% @users.includes(:posts).each do |user| %>
     <li class="flex">
