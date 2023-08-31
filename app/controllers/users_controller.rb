@@ -15,4 +15,9 @@ class UsersController < ApplicationController
   # def set_user
   # @user = User.find(params[:id])
   # end
+
+  def logout
+    sign_out current_user
+    redirect_to root_path
+  end
 end
