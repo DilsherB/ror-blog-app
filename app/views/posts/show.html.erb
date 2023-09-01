@@ -1,17 +1,28 @@
 <%= render "layouts/header"%>
 
-<h2>Post "<%= @post.title%>" by "<%= @post.author.name%>"</h2>
+<h2 class="flex">Post "<%= @post.title%>" by "<%= @post.author.name%>"</h2>
 
 <div class="borderb fit">
   <div class="flex">
     <%= @post.title%>
     <span class="right">Comments: <%= @post.comments_counter || 0 %> Likes: <%= @post.likes_counter || 0%> </span>
   </div></br>
-  <span><%= @post.text%></span>
+  <span class="flexbetween">
+    <div><%= @post.text%></div>
+    <div><% if can? :destroy, Post%>
+      <%= button_to "Delete", user_post_path(@post.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'tablet'%>
+    <% end %></div>
+  </span>
 </div>
   <div class="border fit">
 <% @post.comments.includes(:author).each do |comment| %>
-    <span><%= comment.author.name %>: <%= comment.text %>
+    <span class="flexbetween">
+      <div><em><%= comment.author.name %></em>: <%= comment.text %></div>
+      <div>
+      <% if can? :destroy, comment%>
+        <%= button_to "Delete", user_post_comment_path(@post.id, comment.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'tablet'%>
+      <% end %>
+    </div>
     </span></br>
 <% end %>
   <%= render partial: 'comments/comment', locals: { comment: @comment, user: @user, post: @post }%>

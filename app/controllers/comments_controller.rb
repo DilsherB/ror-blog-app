@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  # before_action :authenticate_user!
+  # load_and_authorize_resource
+
   def new
     @comment = Comment.new
   end
@@ -15,6 +18,13 @@ class CommentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+    redirect_back_or_to root_path
   end
 
   private

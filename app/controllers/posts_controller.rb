@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  # before_action :authenticate_user!
+  load_and_authorize_resource
+
   def index
     user_id = params[:user_id]
     @user = User.find(user_id)
@@ -27,6 +30,13 @@ class PostsController < ApplicationController
       Rails.logger.error(@post.errors.inspect)
       render :new
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    redirect_to user_path(current_user), notice: 'Post successfully deleted'
   end
 
   private
