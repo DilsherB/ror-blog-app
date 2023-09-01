@@ -187,3 +187,14 @@ input {
   width: 20px;
   height: 20px;
 }
+
+.tablet {
+  background-color: rgb(212, 61, 61);
+  color: white;
+  font-size: 14px;
+  padding: 2px 4px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}

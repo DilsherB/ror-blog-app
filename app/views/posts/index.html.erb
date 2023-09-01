@@ -20,7 +20,12 @@
     <li class="borderb fit">
       <div class="fit">
         <div><%= link_to post.title, "posts/#{post.id}" %></div></br>
-        <%= post.text %>
+        <span>
+          <%= post.text %>
+          <% if can? :destroy, post%>
+            <%= button_to "Delete", user_post_path(post.id), method: :delete, data: { confirm: "Are you sure?" }%>
+          <% end %>
+        </span>
         <div class="right fontlight">
           <span>Comments: <%= post.comments_counter || 0 %></span>
           <span>Likes: <%= post.likes_counter || 0 %></span>
@@ -32,6 +37,9 @@
         <% post.recent_comment.each do |comment| %>
           <li>
             <%= comment.author.name%>: <%= comment.text %>
+            <% if can? :destroy, comment%>
+              <%= button_to "Delete", user_post_comment_path(post.id, comment.id), method: :delete, data: { confirm: "Are you sure?" }%>
+            <% end %>
           </li>
         <% end %>
       <% else %>

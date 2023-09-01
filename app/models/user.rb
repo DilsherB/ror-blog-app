@@ -11,6 +11,12 @@ class User < ApplicationRecord
     posts.order(created_at: :desc).limit(limit)
   end
 
+  def admin?
+    role == 'admin'
+  end
+
+  enum role: [:user, :admin]
+
   validates :photo, presence: true
 
   validates :name, presence: true

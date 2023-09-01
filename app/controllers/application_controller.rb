@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   #   @current_user = User.first
   # end
 
-  before_action :update_allowed_parameters, if: :devise_controller?
+  before_action :authenticate_user!, :update_allowed_parameters, if: :devise_controller?
 
   protected
 
