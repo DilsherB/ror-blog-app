@@ -15,7 +15,7 @@ class User < ApplicationRecord
     role == 'admin'
   end
 
-  enum role: [:user, :admin]
+  enum role: %i[user admin]
 
   validates :photo, presence: true
 
