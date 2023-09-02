@@ -130,7 +130,8 @@ Tests will be implemented later on.
 :telescope: Future Features <a name="future-features"></a>
 
 -Add authorization rules.
--Add API endpoints.
+-Add API endpoints to list user posts and comments.
+- Create an API Endpoint to create a comment for a post.
 -API documentation.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
