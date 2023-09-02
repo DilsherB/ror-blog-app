@@ -1,61 +1,63 @@
 require 'swagger_helper'
 
-RSpec.describe 'Posts API', type: :request do
+RSpec.describe 'Comments API', type: :request do
   include Devise::Test::IntegrationHelpers
 
-  let(:user) { User.create!(name: 'John', email: 'john@gmail.com', password: 'password') }
+  let(:user) { User.create!(name: 'Jakir', email: 'jakir@gmail.com', password: 'password') }
+  let(:post) { Post.create!(author: user, title: 'My post title', text: 'My post content') }
 
   before do
     user.confirmed_at = Time.now
     sign_in user
   end
 
-  path '/users/{id}/posts' do
-    get 'Lists all posts of a user' do
-      tags 'Posts'
+  path '/users/{user_id}/posts/{id}/comments' do
+    get 'Lists all comments of a post' do
+      tags 'Comments'
       produces 'application/json'
+      parameter name: :user_id, in: :path, type: :integer
       parameter name: :id, in: :path, type: :integer
 
-      response '200', 'all posts returned' do
+      response '200', 'all comments returned' do
         schema type: :array,
                items: {
                  type: :object,
                  properties: {
                    id: { type: :integer },
-                   title: { type: :string },
                    text: { type: :string },
-                   comments_counter: { type: :integer },
-                   likes_counter: { type: :integer },
                    author_id: { type: :integer },
+                   post_id: { type: :integer },
                    created_at: { type: :string },
                    updated_at: { type: :string }
                  },
                  required: %w[id title text author_id created_at updated_at]
                }
-        let(:id) { user.id }
+        let(:user_id) { user.id }
+        let(:id) { post.id }
         run_test!
       end
     end
   end
 
-  path '/users/{id}/posts' do
-    post 'Create a new post' do
-      tags 'Posts'
+  path '/users/{user_id}/posts/{id}/comments' do
+    post 'Create a new comment' do
+      tags 'Comments'
       produces 'application/json'
       consumes 'application/json'
+      parameter name: :user_id, in: :path, type: :integer
       parameter name: :id, in: :path, type: :integer
-      parameter name: :post_params, in: :body, schema: {
+      parameter name: :comment_params, in: :body, schema: {
         type: :object,
         properties: {
-          title: { type: :string },
           text: { type: :string }
         },
-        required: %w[title text]
+        required: %w[text]
       }
 
-      response '201', 'post created' do
-        let(:id) { user.id }
-        let(:post_params) { { title: 'New Post', text: 'This is a test post.' } }
+      response '201', 'comment created' do
+        let(:user_id) { user.id }
+        let(:id) { post.id }
+        let(:comment_params) { { text: 'This is a test comment.' } }
 
         run_test!
       end
