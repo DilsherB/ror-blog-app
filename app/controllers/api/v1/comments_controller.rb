@@ -4,7 +4,7 @@ class Api::V1::CommentsController < ActionController::API
     render json: post.comments
   end
 
- def create
+  def create
     post = Post.find(params[:post_id])
     comment = post.comments.new(comment_params)
     comment.author_id = current_user.id
@@ -14,7 +14,7 @@ class Api::V1::CommentsController < ActionController::API
     else
       render json: { errors: comment.errors.full_messages }, status: :unprocessable_entity
     end
- end
+  end
 
   private
 
