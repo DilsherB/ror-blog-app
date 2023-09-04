@@ -14,9 +14,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users do
-        resources :posts, format: :json do 
-          resources :comments, format: :json 
+      resources :users, only: [:index] do
+        resources :posts, only: [:index], format: :json do 
+          resources :comments, only: [:index], format: :json 
         end
       end
     end

@@ -1,24 +1,24 @@
 class Api::V1::CommentsController < ActionController::API
+  before_action :set_user
+  before_action :set_post
+  before_action :set_comments
+
   def index
-    post = Post.find(params[:post_id])
-    render json: post.comments
-  end
-
-  def create
-    post = Post.find(params[:post_id])
-    comment = post.comments.new(comment_params)
-    comment.author_id = current_user.id
-
-    if comment.save
-      render json: { notice: 'Comment successfully created', comment: }, status: :created
-    else
-      render json: { errors: comment.errors.full_messages }, status: :unprocessable_entity
-    end
+    pretty_json = JSON.pretty_generate(@comments.as_json)
+    render json: pretty_json, status: :ok
   end
 
   private
 
-  def comment_params
-    params.require(:comment).permit(:text)
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_post
+    @post = @user.posts.find(params[:post_id])
+  end
+
+  def set_comments
+    @comments = @post.comments
   end
 end
